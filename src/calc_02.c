@@ -88,44 +88,40 @@ else if (type == 'v') {     // start vector operations block
             v1 = malloc(vl*sizeof(int));
             v2 = malloc(vl*sizeof(int));
 
-            printf("Enter vector 1 /n");
-                for (i = 1; i < vl; i++) {
+            printf("Enter vector 1 \n");
+                for (i = 0; i < vl; i++) {
                     scanf(" %f", &v1[i]);
                 }
+            printf("Enter vector 2 \n");
+            for (i = 0; i < vl; i++) {
+                scanf(" %f", &v2[i]);
+               }
             printf("Enter operand \n");
             printf(" Acceptable operands: +, -, * \n");
             scanf(" %c", &oper);
 
  switch(oper) {
  case'+':                           /* finds (v1 + v2) */
-     printf("Enter vector 2 /n");
-         for (i = 1; i < vl; i++) {
-            scanf(" %f", &v2[i]);
-         }
-     for (i = 1; i < vl; i++) {
+     for (i = 0; i < vl; i++) {
          printf("%f ", v1[i] + v2[i]);
      }
      break;
  case'-':                           /* finds (v1 - v2) */
-     printf("Enter vector 2 /n");
-         for (i = 1; i < vl; i++) {
-            scanf(" %f", &v2[i]);
-         }
-     for (i = 1; i < vl; i++) {
+     for (i = 0; i < vl; i++) {
          printf("%f ", v1[i] - v2[i]);
      }
      break;
- case'*':                           /* finds (v1 * a) */
-     printf("Enter a number /n");
-     scanf(" %f", &a);
-     for (i = 1; i < vl; i++) {
-              printf("%f ", v1[i] * a);
-          }
+ case'*':
+      for (i = 0; i < vl; i++) {
+          printf("%f ", v1[i] * v2[i]);  /* finds (v1 * v2) */
+     }
      break;
  }   // end switch case
         } // end vectors operations block
 
 }
+free(v1);
+free(v2);
     return EXIT_SUCCESS;
 }
 
