@@ -23,15 +23,15 @@ char oper, go, type;                          /*oper - operand, go - starts/rest
                                                 type - chooses vector of numeral operations   */
 float *v1, *v2;                   /* vectors */
     pre = 1;
-    go = "0";
+
 
     printf("Press 'g' to start");
-    scanf(" %c",&go);
-    if (go == "g") {
+    scanf(" %c", &go);
+    if (go == 'g') {
     printf("for numbers operations press 'n', for vectors press 'v'");
     scanf(" %c", &type);
 
-        if (type == 'n') {          // start numbers operation block
+if (type == 'n') {          // start numbers operation block
 
     printf("Enter a, operand, b. \n");
     printf(" Acceptable operands: +, -, *, /, ^, ! \n");
@@ -78,9 +78,11 @@ switch (oper) {
         else puts("error");
     break;
     }
+        puts(" = ");
+        printf(" %f",result);
         } // end numbers operations block
 
-        else if (type == 'v') {     // start vector operations block
+else if (type == 'v') {     // start vector operations block
             printf("Enter vectors length ");
             scanf(" %i", &vl);
             v1 = malloc(vl*sizeof(int));
@@ -95,19 +97,35 @@ switch (oper) {
             scanf(" %c", &oper);
 
  switch(oper) {
- case'+':
+ case'+':                           /* finds (v1 + v2) */
      printf("Enter vector 2 /n");
-         for (i = 1; i < v2; i++) {
+         for (i = 1; i < vl; i++) {
             scanf(" %f", &v2[i]);
          }
-     for (i = 1, i < vl, i++) {
+     for (i = 1; i < vl; i++) {
          printf("%f ", v1[i] + v2[i]);
      }
      break;
-
+ case'-':                           /* finds (v1 - v2) */
+     printf("Enter vector 2 /n");
+         for (i = 1; i < vl; i++) {
+            scanf(" %f", &v2[i]);
+         }
+     for (i = 1; i < vl; i++) {
+         printf("%f ", v1[i] - v2[i]);
+     }
+     break;
+ case'*':                           /* finds (v1 * a) */
+     printf("Enter a number /n");
+     scanf(" %f", &a);
+     for (i = 1; i < vl; i++) {
+              printf("%f ", v1[i] * a);
+          }
+     break;
  }   // end switch case
         } // end vectors operations block
-    printf(" %f",result);
+
 }
     return EXIT_SUCCESS;
 }
+
