@@ -32,7 +32,7 @@ while (go == 'g') {
     inFile = NULL;
     while (inFile == NULL) {          /* opens files, prints "error" if the input file doesn't exist*/
     printf("Enter input file name (20 characters or less):");
-    scanf(" %s", &nameIn);
+    scanf(" %s", nameIn);
     inFile = fopen(nameIn, "r");
     if (inFile == NULL){
             printf("This file does not exist.\n");
