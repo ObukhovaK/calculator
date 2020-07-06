@@ -128,7 +128,7 @@ else if (type == 'v') {     // start vector operations block
      }
       fprintf(outFile," )\n");
      break;
- }   // end switch case
+  }   // end switch case
  free(v1);
  free(v2);
 } // end vectors operations block
@@ -143,4 +143,3 @@ printf("Press 'g' to restart. Press any other key to exit");
 
     return EXIT_SUCCESS;
 }
-
